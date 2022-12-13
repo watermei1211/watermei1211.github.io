@@ -47,9 +47,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 學習筆記 </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -74,9 +74,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 學習筆記 </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -101,9 +101,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 學習筆記 </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -128,9 +128,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 學習筆記 </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -155,11 +155,38 @@
       
         <tags>
             
-            <tag> 學習筆記 </tag>
-            
             <tag> 人工智慧 </tag>
             
             <tag> 機器學習 </tag>
+            
+            <tag> 學習筆記 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Tensorflow Playground:學習神經網路的資源</title>
+      <link href="/IOT-1-1/"/>
+      <url>/IOT-1-1/</url>
+      
+        <content type="html"><![CDATA[<p><strong>Tensorflow Playground</strong> 簡單神經網絡在線演示、實驗的平台，非常強大地可視化了神經網絡的訓練過程<br>網址: <a href="http://playground.tensorflow.org/">http://playground.tensorflow.org/</a><br><img src="https://lh3.googleusercontent.com/Y3HgQezxaTyMkEa_Xm6qGJaTL6DT_gUwdLAhtPJ9sDO8PROAB8edgNMjRJkwJ6Nn2dHYSelUw46HFeeq3RjYgRvnzTEAt16_u6um4GvgTCRsvfrcEC0Ioxap8gUk8Ym2gjNCNCCbpHg=w800" alt="網頁介面"></p><h1 id="Tensorflow-Playground-Intro"><a href="#Tensorflow-Playground-Intro" class="headerlink" title="Tensorflow Playground Intro"></a>Tensorflow Playground Intro</h1><p>上課時教授推薦了這個網站，藉此來記錄一下使用方式。<br>這個網站將深度學習的名詞，全部變成可調整的設定，可以很方便調整參數，直覺的看出參數的效果，是很厲害的學習資源。</p><p>Google的官方指南<br><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/video-lecture">https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/video-lecture</a></p><h1 id="學習目標"><a href="#學習目標" class="headerlink" title="學習目標"></a>學習目標</h1><p>1.神經網路的目標就是通過訓練，知道藍色的點與橘色的點分別分布在那些位置<br>2.每組數據都是不同型態分布的一群點，數據中的點有2個類別:橘色與藍色</p><h1 id="介面介紹"><a href="#介面介紹" class="headerlink" title="介面介紹"></a>介面介紹</h1><ol><li><p>上面的左邊，是執行步數與顯示，你可以重置訓練，持續訓練，單次訓練，查看已執行的周期數。<br><img src="https://lh3.googleusercontent.com/GcFL_imwMmFSltmaBdMtfx41r9K5iAmhm6q9exvnNCuHx_hefGQtIUJlqmFlyBRHBRYWGtciwXre7bP752mmmzDIQxDY13PivdpKsC9n_KSunhi1NbpBeIlfH-Qx7Sy4ESeoWaCb5eY=w1200" alt="執行步數與顯示"></p></li><li><p>上面的右邊，是訓練的設定，一開始比較常設的就是學習率，最後一個問題型態會改變下方左邊資料集的選項。有 Classification (分類問題資料集) 和 Regression (回歸問題資料集) 二種。<br><img src="https://lh3.googleusercontent.com/xFaoIrXjEu9BKsgBLfrz0K5uat8qLCzHdHX9AmKq5g-DIQJCvOioz1ULturI1gkfO1n-X5lbvfpLQb3TK5zspLAMBiQI3SgTOmF6iP2GzepYaUSF1j2tUF6VQ5UFI2SAtg0NniNGQ8w=w800" alt="訓練的設定"></p></li><li><p>下方左邊是資料集的設定</p></li></ol><p>這是 Classification (分類問題資料集)，有4個資料集(Circle &#x2F; XOR &#x2F; Gaussian &#x2F; Spiral)。<br><img src="https://lh3.googleusercontent.com/58hrYLRvodfLwWuMFCjAvzzL1OIiSRklfJ_bwZDToHQjA0rOwScOhcQ5-5XZEbYBSDvEfWf1p64bb8LNztXJpoCCJJtQvx8GvJuHFpRVdiv8nEb5dW1xRpXYQi431O2vrnzZ3uju5vc=w1200" alt="資料集的設定_Classifucation"></p><p>這是 Regression (回歸問題資料集)，有2個資料集(Plane &#x2F; Multi gaussian)。<br><img src="https://lh3.googleusercontent.com/WV9UfR8ccRoF731MbzYLnrrSefKZMywVIkQr3-pwCQH0RuYkVm8AMLnoSnJGm58S5RGGMOF0JaBE8xXbIxH5Uk1f71LEogWof0f3Zo521X6wWBxaDVhdwIXowM6KKyC4mNS-OxW95-k=w800" alt="資料集的設定_Regression"></p><ol start="4"><li>下面可以設定資料集的訓練設定，要拿多少資料出來訓練，噪點的程度，批次的大小。<br><img src="https://lh3.googleusercontent.com/M5T1FUOrDrn7ZtaMp_xiYdrdK-Gk3fhyRt_FQgZ9PrjpjzpVXDIsp0Rv1VEInK3YvmXLSKhtiAsmTYRVvWShzwmW0rAgMr6dm-5Wy7Y8jBfwYEFMWCOsXJEsCxR0cU1Cg_0KyNSKbeM=w1200" alt="資料及的訓練設定"></li></ol><p>調整噪點後，可以在右邊看到資料集的分佈情況。<br><img src="https://lh3.googleusercontent.com/0zhFrEKASgzKeF6P5pG6SAQADgRMPD1A3UipEJz07dDWbdtp_SPR1mooM1VYe0RTkntSDKrb8WIhm_FAoFODCql6aZwlceizMD0YKyabsA32Z0OIb4ZG5_Mow__32gppU-CZoS2vrUU=w1200" alt="調整噪點"></p><ol start="5"><li>7種型態的特徵輸入值。<br><img src="https://lh3.googleusercontent.com/8N80K7CWVvcjoSGhINr49RwUHHQI5y8hyEOUAdvtWVDLXIZXRZy7ZmjIK9yb43JoVsrHsAfGYFFZPi_NnnIvWwrLnZSpbsTVDJYtyoR0c5spOZj2djODHElfcPyqKl14CI3El-R-7zQ=w800" alt="7種型態的特徵輸入值"></li></ol><blockquote><p>這些型態可以簡單的這樣想像：<br>一個變數 X，這很容易想像，就是一條線可以把畫面切為二個區塊。<br>變數 X 平方可以把畫面切為3個區塊。<br>x1x2二個變數可以變成一個二維坐標系，把畫面切為4個區塊。<br>sin(x) 正弦函數可以把畫面的資料切成4個區塊</p></blockquote><ol start="6"><li><p>隱藏層的設定。<br><img src="https://lh3.googleusercontent.com/lOZXgu0VGXnh15s605Qsbagbb5b4IZOjsAppHsK3pFqnRmJvBIwHRVxUUYmvoqJ3gFBlEig7_MeMxcO4P9pMkkmD2He0PZl7VIHQEWTROQ0TZKCWiCYJR_1Lxg-HRnctjB_6p7avhvA=w800" alt="隱藏層的設定"></p></li><li><p>訓練後你也可以查看跟調整權重。<br><img src="https://lh3.googleusercontent.com/je9OV4XC29HCnkN2nyA1-DMjDp4iWKk2yRt7zPJK1fJdAlyL5MZBvHEyOVfUA4OQBBnyEeKscFuAMMnXIC_izr4Vi2BMRZKuyLQn1Zvfv3QJVXgeLcAJ3VGl5RC1kTyNN5KOuy6KTSw=w800" alt="查看和調整權重"></p></li><li><p>下面右方是輸出結果的顯示，可以看到損失值的情況，下面可以用測試集察看是否有準確。<br><img src="https://lh3.googleusercontent.com/-dLAsVJPhqZ7LiQ4kGnbt9Q3BRLJnYDWwssX5g4N03IwxmNrF8_Wc_GO9FkWA8yfiuNygiLQuzD7AI_6iPUOu9_TDHbA44W7KW6AgKrbSOzzar1tNf-uVWgJVVwkiLPr272HHjyt0C0=w800" alt="損失值查看"></p></li></ol><p>最後就是動手玩看看囉。</p><p><img src="https://lh3.googleusercontent.com/YY7bDgAJziTIeO2Mzz-gDTyWN4HiejibZxIrNeHXdWnL8JExrBN73FxuxzSQlYPB3Sw8DwupKXbgP2epxSyLlPjPc-E3omcbkSXvGAKmjEBjsCp02Xc9pv2rCkNRyaOrlqbkI04Cl1Y=w800" alt="試玩1"></p><p><img src="https://lh3.googleusercontent.com/ozVWeYuR2I4RoS-G8nvga1eIdJ9oTNy3hirUewIQzx7kdRZqXwgFm6HYhi9cOfnp3bM6sipBvlbZUZbmshBwXYeikD4a4YKm1roXau7ZBxS0XnP5bdLg-7DrNBfxOIrUnxmw9N5UUNI=w800" alt="試玩2"></p><h1 id="挑戰看看"><a href="#挑戰看看" class="headerlink" title="挑戰看看"></a>挑戰看看</h1><p>最後可以看這個課程的任務 Neural Networks: Playground Exercises ，練習看看。<br><a href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/playground-exercises">https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/playground-exercises</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 物聯網與雲端系統 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 人工智慧 </tag>
+            
+            <tag> 學習筆記 </tag>
             
         </tags>
       

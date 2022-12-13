@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Tensorflow Playground:學習神經網路的資源 | Eunice's Blog</title><meta name="keywords" content="人工智慧,學習筆記"><meta name="author" content="Eunice Lee"><meta name="copyright" content="Eunice Lee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Tensorflow Playground 簡單神經網絡在線演示、實驗的平台，非常強大地可視化了神經網絡的訓練過程網址: http:&#x2F;&#x2F;playground.tensorflow.org&#x2F; Tensorflow Playground Intro上課時教授推薦了這個網站，藉此來記錄一下使用方式。這個網站將深度學習的名詞，全部變成可調整的設定，可以很方便調整參數，直覺的看出參數的效果，是很厲害的學習資">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensorflow Playground:學習神經網路的資源">
+<meta property="og:url" content="https://watermei1211.github.io/IOT-1-1/">
+<meta property="og:site_name" content="Eunice&#39;s Blog">
+<meta property="og:description" content="Tensorflow Playground 簡單神經網絡在線演示、實驗的平台，非常強大地可視化了神經網絡的訓練過程網址: http:&#x2F;&#x2F;playground.tensorflow.org&#x2F; Tensorflow Playground Intro上課時教授推薦了這個網站，藉此來記錄一下使用方式。這個網站將深度學習的名詞，全部變成可調整的設定，可以很方便調整參數，直覺的看出參數的效果，是很厲害的學習資">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/MHKPi6F.jpeg">
+<meta property="article:published_time" content="2022-09-21T09:05:57.000Z">
+<meta property="article:modified_time" content="2022-12-13T12:43:35.195Z">
+<meta property="article:author" content="Eunice Lee">
+<meta property="article:tag" content="人工智慧">
+<meta property="article:tag" content="學習筆記">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/MHKPi6F.jpeg"><link rel="shortcut icon" href="https://i.imgur.com/yOtDp2c.png"><link rel="canonical" href="https://watermei1211.github.io/IOT-1-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查詢的內容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Eunice Lee","link":"連結: ","source":"來源: Eunice's Blog","info":"著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Tensorflow Playground:學習神經網路的資源',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-13 20:43:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.imgur.com/AiZwQcy.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> Archives</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> Gallery</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Photos</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Eunice's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜尋</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> Archives</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> Gallery</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Photos</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Tensorflow Playground:學習神經網路的資源</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2022-09-21T09:05:57.000Z" title="發表於 2022-09-21 17:05:57">2022-09-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2022-12-13T12:43:35.195Z" title="更新於 2022-12-13 20:43:35">2022-12-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%89%A9%E8%81%AF%E7%B6%B2%E8%88%87%E9%9B%B2%E7%AB%AF%E7%B3%BB%E7%B5%B1/">物聯網與雲端系統</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字數總計:</span><span class="word-count">636</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時長:</span><span>2分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Tensorflow Playground:學習神經網路的資源"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p><strong>Tensorflow Playground</strong> 簡單神經網絡在線演示、實驗的平台，非常強大地可視化了神經網絡的訓練過程<br>網址: <a target="_blank" rel="noopener" href="http://playground.tensorflow.org/">http://playground.tensorflow.org/</a><br><img src="https://lh3.googleusercontent.com/Y3HgQezxaTyMkEa_Xm6qGJaTL6DT_gUwdLAhtPJ9sDO8PROAB8edgNMjRJkwJ6Nn2dHYSelUw46HFeeq3RjYgRvnzTEAt16_u6um4GvgTCRsvfrcEC0Ioxap8gUk8Ym2gjNCNCCbpHg=w800" alt="網頁介面"></p>
+<h1 id="Tensorflow-Playground-Intro"><a href="#Tensorflow-Playground-Intro" class="headerlink" title="Tensorflow Playground Intro"></a>Tensorflow Playground Intro</h1><p>上課時教授推薦了這個網站，藉此來記錄一下使用方式。<br>這個網站將深度學習的名詞，全部變成可調整的設定，可以很方便調整參數，直覺的看出參數的效果，是很厲害的學習資源。</p>
+<p>Google的官方指南<br><a target="_blank" rel="noopener" href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/video-lecture">https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/video-lecture</a></p>
+<h1 id="學習目標"><a href="#學習目標" class="headerlink" title="學習目標"></a>學習目標</h1><p>1.神經網路的目標就是通過訓練，知道藍色的點與橘色的點分別分布在那些位置<br>2.每組數據都是不同型態分布的一群點，數據中的點有2個類別:橘色與藍色</p>
+<h1 id="介面介紹"><a href="#介面介紹" class="headerlink" title="介面介紹"></a>介面介紹</h1><ol>
+<li><p>上面的左邊，是執行步數與顯示，你可以重置訓練，持續訓練，單次訓練，查看已執行的周期數。<br><img src="https://lh3.googleusercontent.com/GcFL_imwMmFSltmaBdMtfx41r9K5iAmhm6q9exvnNCuHx_hefGQtIUJlqmFlyBRHBRYWGtciwXre7bP752mmmzDIQxDY13PivdpKsC9n_KSunhi1NbpBeIlfH-Qx7Sy4ESeoWaCb5eY=w1200" alt="執行步數與顯示"></p>
+</li>
+<li><p>上面的右邊，是訓練的設定，一開始比較常設的就是學習率，最後一個問題型態會改變下方左邊資料集的選項。有 Classification (分類問題資料集) 和 Regression (回歸問題資料集) 二種。<br><img src="https://lh3.googleusercontent.com/xFaoIrXjEu9BKsgBLfrz0K5uat8qLCzHdHX9AmKq5g-DIQJCvOioz1ULturI1gkfO1n-X5lbvfpLQb3TK5zspLAMBiQI3SgTOmF6iP2GzepYaUSF1j2tUF6VQ5UFI2SAtg0NniNGQ8w=w800" alt="訓練的設定"></p>
+</li>
+<li><p>下方左邊是資料集的設定</p>
+</li>
+</ol>
+<p>這是 Classification (分類問題資料集)，有4個資料集(Circle &#x2F; XOR &#x2F; Gaussian &#x2F; Spiral)。<br><img src="https://lh3.googleusercontent.com/58hrYLRvodfLwWuMFCjAvzzL1OIiSRklfJ_bwZDToHQjA0rOwScOhcQ5-5XZEbYBSDvEfWf1p64bb8LNztXJpoCCJJtQvx8GvJuHFpRVdiv8nEb5dW1xRpXYQi431O2vrnzZ3uju5vc=w1200" alt="資料集的設定_Classifucation"></p>
+<p>這是 Regression (回歸問題資料集)，有2個資料集(Plane &#x2F; Multi gaussian)。<br><img src="https://lh3.googleusercontent.com/WV9UfR8ccRoF731MbzYLnrrSefKZMywVIkQr3-pwCQH0RuYkVm8AMLnoSnJGm58S5RGGMOF0JaBE8xXbIxH5Uk1f71LEogWof0f3Zo521X6wWBxaDVhdwIXowM6KKyC4mNS-OxW95-k=w800" alt="資料集的設定_Regression"></p>
+<ol start="4">
+<li>下面可以設定資料集的訓練設定，要拿多少資料出來訓練，噪點的程度，批次的大小。<br><img src="https://lh3.googleusercontent.com/M5T1FUOrDrn7ZtaMp_xiYdrdK-Gk3fhyRt_FQgZ9PrjpjzpVXDIsp0Rv1VEInK3YvmXLSKhtiAsmTYRVvWShzwmW0rAgMr6dm-5Wy7Y8jBfwYEFMWCOsXJEsCxR0cU1Cg_0KyNSKbeM=w1200" alt="資料及的訓練設定"></li>
+</ol>
+<p>調整噪點後，可以在右邊看到資料集的分佈情況。<br><img src="https://lh3.googleusercontent.com/0zhFrEKASgzKeF6P5pG6SAQADgRMPD1A3UipEJz07dDWbdtp_SPR1mooM1VYe0RTkntSDKrb8WIhm_FAoFODCql6aZwlceizMD0YKyabsA32Z0OIb4ZG5_Mow__32gppU-CZoS2vrUU=w1200" alt="調整噪點"></p>
+<ol start="5">
+<li>7種型態的特徵輸入值。<br><img src="https://lh3.googleusercontent.com/8N80K7CWVvcjoSGhINr49RwUHHQI5y8hyEOUAdvtWVDLXIZXRZy7ZmjIK9yb43JoVsrHsAfGYFFZPi_NnnIvWwrLnZSpbsTVDJYtyoR0c5spOZj2djODHElfcPyqKl14CI3El-R-7zQ=w800" alt="7種型態的特徵輸入值"></li>
+</ol>
+<blockquote>
+<p>這些型態可以簡單的這樣想像：<br>一個變數 X，這很容易想像，就是一條線可以把畫面切為二個區塊。<br>變數 X 平方可以把畫面切為3個區塊。<br>x1x2二個變數可以變成一個二維坐標系，把畫面切為4個區塊。<br>sin(x) 正弦函數可以把畫面的資料切成4個區塊</p>
+</blockquote>
+<ol start="6">
+<li><p>隱藏層的設定。<br><img src="https://lh3.googleusercontent.com/lOZXgu0VGXnh15s605Qsbagbb5b4IZOjsAppHsK3pFqnRmJvBIwHRVxUUYmvoqJ3gFBlEig7_MeMxcO4P9pMkkmD2He0PZl7VIHQEWTROQ0TZKCWiCYJR_1Lxg-HRnctjB_6p7avhvA=w800" alt="隱藏層的設定"></p>
+</li>
+<li><p>訓練後你也可以查看跟調整權重。<br><img src="https://lh3.googleusercontent.com/je9OV4XC29HCnkN2nyA1-DMjDp4iWKk2yRt7zPJK1fJdAlyL5MZBvHEyOVfUA4OQBBnyEeKscFuAMMnXIC_izr4Vi2BMRZKuyLQn1Zvfv3QJVXgeLcAJ3VGl5RC1kTyNN5KOuy6KTSw=w800" alt="查看和調整權重"></p>
+</li>
+<li><p>下面右方是輸出結果的顯示，可以看到損失值的情況，下面可以用測試集察看是否有準確。<br><img src="https://lh3.googleusercontent.com/-dLAsVJPhqZ7LiQ4kGnbt9Q3BRLJnYDWwssX5g4N03IwxmNrF8_Wc_GO9FkWA8yfiuNygiLQuzD7AI_6iPUOu9_TDHbA44W7KW6AgKrbSOzzar1tNf-uVWgJVVwkiLPr272HHjyt0C0=w800" alt="損失值查看"></p>
+</li>
+</ol>
+<p>最後就是動手玩看看囉。</p>
+<p><img src="https://lh3.googleusercontent.com/YY7bDgAJziTIeO2Mzz-gDTyWN4HiejibZxIrNeHXdWnL8JExrBN73FxuxzSQlYPB3Sw8DwupKXbgP2epxSyLlPjPc-E3omcbkSXvGAKmjEBjsCp02Xc9pv2rCkNRyaOrlqbkI04Cl1Y=w800" alt="試玩1"></p>
+<p><img src="https://lh3.googleusercontent.com/ozVWeYuR2I4RoS-G8nvga1eIdJ9oTNy3hirUewIQzx7kdRZqXwgFm6HYhi9cOfnp3bM6sipBvlbZUZbmshBwXYeikD4a4YKm1roXau7ZBxS0XnP5bdLg-7DrNBfxOIrUnxmw9N5UUNI=w800" alt="試玩2"></p>
+<h1 id="挑戰看看"><a href="#挑戰看看" class="headerlink" title="挑戰看看"></a>挑戰看看</h1><p>最後可以看這個課程的任務 Neural Networks: Playground Exercises ，練習看看。<br><a target="_blank" rel="noopener" href="https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/playground-exercises">https://developers.google.com/machine-learning/crash-course/introduction-to-neural-networks/playground-exercises</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://watermei1211.github.io">Eunice Lee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章連結: </span><span class="post-copyright-info"><a href="https://watermei1211.github.io/IOT-1-1/">https://watermei1211.github.io/IOT-1-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明來自 <a href="https://watermei1211.github.io" target="_blank">Eunice's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7/">人工智慧</a><a class="post-meta__tags" href="/tags/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a></div><div class="post_share"><div class="social-share" data-image="https://i.imgur.com/MHKPi6F.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/Machine-Learning-1-1/" title="Machine Learning 1.1 AI與機器學習"><img class="cover" src="https://img.freepik.com/free-vector/artificial-intelligence-isometric-flowchart-with-robot-risks-benefits-symbols-illustration_1284-53912.jpg?w=900&t=st=1663751665~exp=1663752265~hmac=47ea8ad08837626744ef9c160289df25c1f19e5e38792ede934bff250778884b" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-21</div><div class="title">Machine Learning 1.1 AI與機器學習</div></div></a></div><div><a href="/python-1-1/" title="Python 1.1 Python Data Structures"><img class="cover" src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-11</div><div class="title">Python 1.1 Python Data Structures</div></div></a></div><div><a href="/python-1-2/" title="Python 1.2 Strings"><img class="cover" src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-11</div><div class="title">Python 1.2 Strings</div></div></a></div><div><a href="/python-1-3/" title="Python 1.3 Numeric Types"><img class="cover" src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-11</div><div class="title">Python 1.3 Numeric Types</div></div></a></div><div><a href="/python-1-4/" title="Python 1.4 Sequence Types"><img class="cover" src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-14</div><div class="title">Python 1.4 Sequence Types</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.imgur.com/AiZwQcy.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eunice Lee</div><div class="author-info__description">初心者的自言自語</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.facebook.com/eunice.harry.daily/"><i class="fab fa-brands fa-facebook"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/watermei1211" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:watermei1211@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">新開張!!!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Tensorflow-Playground-Intro"><span class="toc-text">Tensorflow Playground Intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99"><span class="toc-text">學習目標</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E9%9D%A2%E4%BB%8B%E7%B4%B9"><span class="toc-text">介面介紹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%91%E6%88%B0%E7%9C%8B%E7%9C%8B"><span class="toc-text">挑戰看看</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/shiba-1-2/" title="入柴坑新手上路_與哈里相遇的100天"><img src="https://lh3.googleusercontent.com/Cl7bD2PoeSMpdc4qAzhK2HKIM79LU9Bl5w7IyiXRyHvi6itR0S5mQ_gQY_MveAeiWtaDfKBGT8I_n5378J9TiAS7tO-O1tMxqB5-6I4lWbY8ktuCwhGf_zRyku7NcstOJZbBVtc3c04=w600" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="入柴坑新手上路_與哈里相遇的100天"/></a><div class="content"><a class="title" href="/shiba-1-2/" title="入柴坑新手上路_與哈里相遇的100天">入柴坑新手上路_與哈里相遇的100天</a><time datetime="2022-11-22T10:58:06.000Z" title="發表於 2022-11-22 18:58:06">2022-11-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/python-1-4/" title="Python 1.4 Sequence Types"><img src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 1.4 Sequence Types"/></a><div class="content"><a class="title" href="/python-1-4/" title="Python 1.4 Sequence Types">Python 1.4 Sequence Types</a><time datetime="2022-10-14T11:56:57.000Z" title="發表於 2022-10-14 19:56:57">2022-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/python-1-3/" title="Python 1.3 Numeric Types"><img src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 1.3 Numeric Types"/></a><div class="content"><a class="title" href="/python-1-3/" title="Python 1.3 Numeric Types">Python 1.3 Numeric Types</a><time datetime="2022-10-11T11:42:57.000Z" title="發表於 2022-10-11 19:42:57">2022-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/python-1-2/" title="Python 1.2 Strings"><img src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 1.2 Strings"/></a><div class="content"><a class="title" href="/python-1-2/" title="Python 1.2 Strings">Python 1.2 Strings</a><time datetime="2022-10-11T08:30:57.000Z" title="發表於 2022-10-11 16:30:57">2022-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/python-1-1/" title="Python 1.1 Python Data Structures"><img src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 1.1 Python Data Structures"/></a><div class="content"><a class="title" href="/python-1-1/" title="Python 1.1 Python Data Structures">Python 1.1 Python Data Structures</a><time datetime="2022-10-11T06:49:57.000Z" title="發表於 2022-10-11 14:49:57">2022-10-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By Eunice Lee</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, Welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="簡繁轉換">繁</button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直達評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜尋</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  資料庫載入中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜尋文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://watermei1211.github.io/IOT-1-1/'
+    this.page.identifier = '/IOT-1-1/'
+    this.page.title = 'Tensorflow Playground:學習神經網路的資源'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-watermei1211-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Disqus' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
