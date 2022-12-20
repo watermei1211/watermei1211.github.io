@@ -1,0 +1,444 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>資料分析主題_使用機器學習建立成績預測模型 | Eunice's Blog</title><meta name="keywords" content="人工智慧,機器學習,學習筆記"><meta name="author" content="Eunice Lee"><meta name="copyright" content="Eunice Lee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Kaggle分析主題_Alcohol Effects On Study這次的作業是找一個kaggle的dataset進行模型的建立，這是我入門的第一個專案，因此不敢找過於複雜的資料集。 此主題網址：https:&#x2F;&#x2F;www.kaggle.com&#x2F;datasets&#x2F;whenamancodes&#x2F;alcohol-effects-on-study  簡易介紹：這個dataset蒐集了兩所葡萄牙學校的中學教育">
+<meta property="og:type" content="article">
+<meta property="og:title" content="資料分析主題_使用機器學習建立成績預測模型">
+<meta property="og:url" content="https://watermei1211.github.io/dataset-1/">
+<meta property="og:site_name" content="Eunice&#39;s Blog">
+<meta property="og:description" content="Kaggle分析主題_Alcohol Effects On Study這次的作業是找一個kaggle的dataset進行模型的建立，這是我入門的第一個專案，因此不敢找過於複雜的資料集。 此主題網址：https:&#x2F;&#x2F;www.kaggle.com&#x2F;datasets&#x2F;whenamancodes&#x2F;alcohol-effects-on-study  簡易介紹：這個dataset蒐集了兩所葡萄牙學校的中學教育">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.freepik.com/free-vector/artificial-intelligence-isometric-flowchart-with-robot-risks-benefits-symbols-illustration_1284-53912.jpg?w=900&t=st=1663751665~exp=1663752265~hmac=47ea8ad08837626744ef9c160289df25c1f19e5e38792ede934bff250778884b">
+<meta property="article:published_time" content="2022-12-20T11:05:00.000Z">
+<meta property="article:modified_time" content="2022-12-20T12:49:27.480Z">
+<meta property="article:author" content="Eunice Lee">
+<meta property="article:tag" content="人工智慧">
+<meta property="article:tag" content="機器學習">
+<meta property="article:tag" content="學習筆記">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.freepik.com/free-vector/artificial-intelligence-isometric-flowchart-with-robot-risks-benefits-symbols-illustration_1284-53912.jpg?w=900&t=st=1663751665~exp=1663752265~hmac=47ea8ad08837626744ef9c160289df25c1f19e5e38792ede934bff250778884b"><link rel="shortcut icon" href="https://i.imgur.com/yOtDp2c.png"><link rel="canonical" href="https://watermei1211.github.io/dataset-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查詢的內容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Eunice Lee","link":"連結: ","source":"來源: Eunice's Blog","info":"著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '資料分析主題_使用機器學習建立成績預測模型',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-20 20:49:27'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.imgur.com/AiZwQcy.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> Archives</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> Gallery</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Photos</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Eunice's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜尋</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> Archives</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> Gallery</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Photos</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">資料分析主題_使用機器學習建立成績預測模型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2022-12-20T11:05:00.000Z" title="發表於 2022-12-20 19:05:00">2022-12-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2022-12-20T12:49:27.480Z" title="更新於 2022-12-20 20:49:27">2022-12-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E8%88%87%E8%BF%B4%E6%AD%B8%E5%88%86%E6%9E%90/">資料科學與迴歸分析</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字數總計:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時長:</span><span>13分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="資料分析主題_使用機器學習建立成績預測模型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="Kaggle分析主題-Alcohol-Effects-On-Study"><a href="#Kaggle分析主題-Alcohol-Effects-On-Study" class="headerlink" title="Kaggle分析主題_Alcohol Effects On Study"></a>Kaggle分析主題_Alcohol Effects On Study</h1><p>這次的作業是找一個kaggle的dataset進行模型的建立，這是我入門的第一個專案，因此不敢找過於複雜的資料集。<br><img src="https://lh3.googleusercontent.com/OQI_qKYfIKvKPox-Rb5ictbGpwyfhc1yQo_dxAfOatNhCO5WFcjOvYko4pYjm1Y0vY3FWh3QPx53hqr0S2YCWUFeteKRWkspBDYNrdVMxwe_1NO7RJhicEOuMSKQI_OurWnstGtcN5o=w800" alt="Alcohol Effects On Study"></p>
+<p>此主題網址：<a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/whenamancodes/alcohol-effects-on-study">https://www.kaggle.com/datasets/whenamancodes/alcohol-effects-on-study</a></p>
+<ol>
+<li><p>簡易介紹：這個dataset蒐集了兩所葡萄牙學校的中學教育學生成績。數據屬性包括學生成績、人口統計、社會和學校的相關特徵，蒐集的方式是通過<strong>學校報告</strong>和<strong>問卷收集</strong>。<br>這個dataset提供了兩個關於兩個不同主題：數學 (math) 和葡萄牙語 (portuguese)。</p>
+</li>
+<li><p>數據屬性：學生成績、人口統計、社會和學校相關特徵</p>
+</li>
+<li><p>分析方式;LinearRegression、Decision Trees、Random Forest</p>
+</li>
+<li><p>研究目的: 這項研究的成果是為了開發有效的模型預測學生表現，提高教育質量和加強學校資源管理。</p>
+</li>
+</ol>
+<blockquote>
+<p>而我做這著專案，要根據這個資料庫，分析影響學習的因素，並<strong>建立模型預測G3成績</strong>。</p>
+</blockquote>
+<p><img src="https://lh3.googleusercontent.com/BqFb0We524BQHIDRH5TTgRRu-u-cR5cFIr2U0YThW6ndyMot0Dw_sBGxSzKxxk8ddgrwXUzcSX5l-uw4qThz2h8yapI3nn18Ip8By0U50-e1IGDFdwVX-9-_SOuEQTUhncziiR5CgWE=w800" alt="步驟"></p>
+<h1 id="Step1-取得資料"><a href="#Step1-取得資料" class="headerlink" title="Step1 取得資料"></a>Step1 取得資料</h1><h2 id="1-1-讀取資料"><a href="#1-1-讀取資料" class="headerlink" title="1.1 讀取資料"></a>1.1 讀取資料</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data1 = pd.read_csv(&quot;Maths.csv&quot;)</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-探索資料"><a href="#1-2-探索資料" class="headerlink" title="1.2 探索資料"></a>1.2 探索資料</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data1.head()</span><br></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/tIDleoVTnppsG_1dR35GgVH50unXgvc0qw-8ldQAznQwsj3c5zOfwSOpo_9EuB5iloNtrIthGy9rnMSzfPhDEi022krENqXayNvkabpGEUXAoNSwuiNCRx5hDr-32KrGOUlFOjTMcJk=w800" alt="1"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data1.info(), &#x27;\n&#x27;</span><br><span class="line">data1.shape</span><br></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/kGLlearbw9BJFC303WmYj-a8JwzVgUlKQRm5Fhwqpic3rl0wHU2J3guKxYuY-mbmWsin3-2ZSsSUYHH670EPnyzO4tsPirhOiqkjq9iS41M4Jn0fKSTUHFDcfno5nMAfren0u_Lh9P0=w800" alt="2"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data1.describe()</span><br></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/6giHOaq9zvyXqSxLGkwNMye9XQrRmIC7M0ihuj-ISqi6JdwQ2g94-oSrqUU6lp2HEtzeM_gzCQdWe28gEEjIEI4SxRToWxiLUOchkT_W6w2af0GqNwp9SYdt3wptm88S7xG0tV_s5Rk=w800" alt="3"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data1.hist(bins=None, histtype=&#x27;barstacked&#x27; ,figsize=(20, 15))</span><br></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/mf5hR2g7zsbu1_fsFf6rPm7VhOF5WqbnYO2lJ_g_V1Hxt4o_43LF7glI5WU13ZJi5PHaJejyEvKzUazdL09B3BUXLj2JgcygUtbQhBqDgHxqi3soHSmh2TeKSDsSay7vpQwl1Q0U4Tk=w800" alt="4"></p>
+<h2 id="1-3-查看遺失值"><a href="#1-3-查看遺失值" class="headerlink" title="1.3 查看遺失值"></a>1.3 查看遺失值</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data1.isnull().sum()</span><br></pre></td></tr></table></figure>
+<h1 id="Step2-切割訓練集-x2F-測試集"><a href="#Step2-切割訓練集-x2F-測試集" class="headerlink" title="Step2 切割訓練集&#x2F;測試集"></a>Step2 切割訓練集&#x2F;測試集</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line"></span><br><span class="line">train_set, test_set = train_test_split(data1, test_size=0.2, random_state=1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_set.shape, test_set.shape</span><br></pre></td></tr></table></figure>
+<p>((316, 33), (79, 33))</p>
+<h1 id="Step3-探索數據分析"><a href="#Step3-探索數據分析" class="headerlink" title="Step3 探索數據分析"></a>Step3 探索數據分析</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#Select numerical columns</span><br><span class="line">num_cols = [cname for cname in train_set.columns if train_set[cname].dtype == &#x27;int64&#x27;]</span><br><span class="line"></span><br><span class="line">#Select categorical columns</span><br><span class="line">cat_cols = [cname for cname in train_set.columns if train_set[cname].dtype == &quot;object&quot;]</span><br></pre></td></tr></table></figure>
+<h2 id="3-1-數值型資料"><a href="#3-1-數值型資料" class="headerlink" title="3.1 數值型資料"></a>3.1 數值型資料</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import seaborn as sns</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(20,15))</span><br><span class="line">g = sns.heatmap(train_set[num_cols].corr(), annot=True, fmt = &quot;.2f&quot;, cmap = &quot;coolwarm&quot;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/9_BH4gnuqAilOnjVrvTF4Nobh5JQ8zkTsa6aNJuDxEEN7Q2_D_b1GypjNH0DZtWM_dGg6KIMwEM9XIggpp_LxaTnarGcPZIWcrHWlI-xEbRMf2tLKxyMGvbEfM3fiWOiTaPIWIQfuPI=w800" alt="5"><br><strong>推論：G2 和 G1 特徵似乎與 G3 存在著顯著相關性。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Explore numerical features vs G3, not including absences, G1, G2 and G3 features</span><br><span class="line">num_features = [&#x27;age&#x27;,&#x27;Medu&#x27;,&#x27;Fedu&#x27;,&#x27;traveltime&#x27;,&#x27;studytime&#x27;,&#x27;failures&#x27;,&#x27;famrel&#x27;,&#x27;freetime&#x27;,&#x27;goout&#x27;,&#x27;Dalc&#x27;,&#x27;Walc&#x27;,&#x27;health&#x27;]</span><br><span class="line">for fea in num_features:</span><br><span class="line">  g = sns.catplot(x=fea, y=&quot;G3&quot;, data=train_set, kind=&quot;bar&quot;)</span><br><span class="line">  g.despine(left=True)</span><br><span class="line">  g = g.set_ylabels(&quot;G3&quot;)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>**over 20 years old got lower score.</li>
+<li>Father’s education is higher, student’s score is better.</li>
+<li>travel time from home to school is short, the score is better.</li>
+<li>weekly study time over 10 hours get highest score.</li>
+<li>students has no class failures get higher score.</li>
+<li>**Very bad quality of family relationships got higher score.</li>
+<li>**Workday and weekend alcohol consumption don’t significantly affect grade.</li>
+<li>**Current bad health status get better grade.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">features = [&#x27;absences&#x27;, &#x27;G1&#x27;, &#x27;G2&#x27;]</span><br><span class="line">for fea in features:</span><br><span class="line">  sns.scatterplot(data=train_set, x=fea, y=&#x27;G3&#x27;, alpha=0.2)</span><br><span class="line">  plt.show()</span><br></pre></td></tr></table></figure></li>
+<li>number of absences below 10 teims get better grade.</li>
+<li>G1(G2) and G3 are positive correlated.</li>
+</ol>
+<h2 id="3-2-類別型資料"><a href="#3-2-類別型資料" class="headerlink" title="3.2 類別型資料"></a>3.2 類別型資料</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Explore categorical features vs G3</span><br><span class="line">for col in cat_cols:</span><br><span class="line">  g = sns.catplot(x=col, y=&quot;G3&quot;, data=train_set, kind=&quot;bar&quot;, palette=&quot;muted&quot;)</span><br><span class="line">  g.despine(left=True)</span><br><span class="line">  g = g.set_ylabels(&quot;G3&quot;)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Student live in urban get better score.</li>
+<li>Family size less or equal to 3 get better score.</li>
+<li>Mother’s and father’s jobs  are health get better score.</li>
+<li>Student’s guardian is other get lower score.</li>
+<li>Students wants higher education get better G3 grade. </li>
+<li>Using internet at home get higher score.</li>
+</ol>
+<h1 id="Step4-資料前處理"><a href="#Step4-資料前處理" class="headerlink" title="Step4 資料前處理"></a>Step4 資料前處理</h1><h2 id="4-1-Ordinal-encoder"><a href="#4-1-Ordinal-encoder" class="headerlink" title="4.1 Ordinal encoder"></a>4.1 Ordinal encoder</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.preprocessing import OrdinalEncoder</span><br><span class="line">ordinal_encoder = OrdinalEncoder(dtype=&#x27;int64&#x27;)</span><br><span class="line">bool_cols = [&#x27;schoolsup&#x27;,&#x27;famsup&#x27;,&#x27;paid&#x27;,&#x27;activities&#x27;,&#x27;nursery&#x27;,&#x27;higher&#x27;,&#x27;internet&#x27;,&#x27;romantic&#x27;]</span><br><span class="line">train_set[bool_cols] = ordinal_encoder.fit_transform(train_set[bool_cols])</span><br><span class="line">test_set[bool_cols] = ordinal_encoder.transform(test_set[bool_cols])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_set.T.head(35)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Step5-建立與發佈模型"><a href="#Step5-建立與發佈模型" class="headerlink" title="Step5 建立與發佈模型"></a>Step5 建立與發佈模型</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xm_train = train_set.drop([&#x27;G3&#x27;], axis=1)</span><br><span class="line">ym_train = train_set[&#x27;G3&#x27;].copy()</span><br><span class="line"></span><br><span class="line">xm_test = test_set.drop([&#x27;G3&#x27;], axis=1)</span><br><span class="line">ym_test = test_set[&#x27;G3&#x27;].copy()</span><br></pre></td></tr></table></figure>
+<h2 id="OneHotEncoder"><a href="#OneHotEncoder" class="headerlink" title="OneHotEncoder"></a>OneHotEncoder</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.pipeline import Pipeline</span><br><span class="line">from sklearn.impute import SimpleImputer</span><br><span class="line">from sklearn.preprocessing import OneHotEncoder, StandardScaler, OrdinalEncoder</span><br><span class="line">from sklearn.compose import ColumnTransformer</span><br><span class="line"></span><br><span class="line"># Preprocessing for numerical data</span><br><span class="line">numerical_transformer = Pipeline(steps=[</span><br><span class="line">    (&#x27;imputer&#x27;, SimpleImputer(strategy=&#x27;mean&#x27;)), </span><br><span class="line">    (&#x27;std_scaler&#x27;, StandardScaler())</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"># Preprocessing for categorical data</span><br><span class="line">categorical_transformer = Pipeline(steps=[</span><br><span class="line">    (&#x27;imputer&#x27;, SimpleImputer(strategy=&#x27;most_frequent&#x27;)),</span><br><span class="line">    (&#x27;onehot&#x27;, OneHotEncoder())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">my_pipeline = ColumnTransformer(transformers=[</span><br><span class="line">        (&#x27;num&#x27;, numerical_transformer, numerical_cols),</span><br><span class="line">        (&#x27;cat&#x27;, categorical_transformer, categorical_cols)</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line">Xm_train_prep = my_pipeline.fit_transform(Xm_train)</span><br><span class="line">Xm_train_prep.shape</span><br></pre></td></tr></table></figure>
+<p>(316,50)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Xm_train_prep</span><br></pre></td></tr></table></figure>
+<p>array([[-0.51393668, -0.70978126, -0.50736842, …,  0.        ,<br>         1.        ,  0.        ],<br>       [ 1.89800379,  1.12116468,  1.33548699, …,  0.        ,<br>         0.        ,  1.        ],<br>       [-1.31791684,  1.12116468,  0.41405928, …,  0.        ,<br>         1.        ,  0.        ],<br>       …,<br>       [-1.31791684, -1.62525423, -1.42879612, …,  0.        ,<br>         1.        ,  0.        ],<br>       [-0.51393668,  0.20569171, -0.50736842, …,  0.        ,<br>         1.        ,  0.        ],<br>       [-0.51393668,  1.12116468,  1.33548699, …,  0.        ,<br>         1.        ,  0.        ]])</p>
+<h2 id="5-2-Simple-modeling"><a href="#5-2-Simple-modeling" class="headerlink" title="5.2 Simple modeling"></a>5.2 Simple modeling</h2><h3 id="5-2-1-Cross-validate-models"><a href="#5-2-1-Cross-validate-models" class="headerlink" title="5.2.1 Cross validate models"></a>5.2.1 Cross validate models</h3><p>​<br>I compared regressions and evaluate the R2 score.<br>​</p>
+<ul>
+<li>Linear regression</li>
+<li>Decision Tree</li>
+<li>Random Forest<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.linear_model import LinearRegression</span><br><span class="line">from sklearn.tree import DecisionTreeRegressor</span><br><span class="line">from sklearn.ensemble import RandomForestRegressor</span><br><span class="line">from sklearn.model_selection import train_test_split, cross_val_score, RandomizedSearchCV</span><br><span class="line"># Modeling step Test differents algorithms </span><br><span class="line">kfold =20</span><br><span class="line">classifiers = []</span><br><span class="line">classifiers.append(LinearRegression())</span><br><span class="line">classifiers.append(DecisionTreeRegressor())</span><br><span class="line">classifiers.append(RandomForestRegressor())</span><br><span class="line"></span><br><span class="line">cv_results = []</span><br><span class="line">for classifier in classifiers:</span><br><span class="line">    cv_results.append(cross_val_score(classifier, Xm_train_prep, ym_train, scoring = &quot;r2&quot;, cv = kfold))</span><br><span class="line"></span><br><span class="line">cv_means = []</span><br><span class="line">cv_std = []</span><br><span class="line">for cv_result in cv_results:</span><br><span class="line">    cv_means.append(cv_result.mean())</span><br><span class="line">    cv_std.append(cv_result.std())</span><br><span class="line"></span><br><span class="line">cv_res = pd.DataFrame(&#123;&quot;Algorithm&quot;:[&quot;Linear&quot;,&quot;DecisionTree&quot;,&quot;RandomForest&quot;], &quot;CrossValMeans&quot;:cv_means,&quot;CrossValStd&quot;: cv_std&#125;)</span><br><span class="line">cv_res</span><br></pre></td></tr></table></figure>
+<img src="https://lh3.googleusercontent.com/CF0aE4eJfkedUuVIw1IvrhjCtS5zzXn8QdIRWyePLqTq3JcaMQGZwncUE-l8tUlJdTUpmuyrgrLHLMOwsNstqWJiSMogzgvmly77DxMvUwoZ_Sm_BIeDT-kWhFAj_Zg7YXo1DJE1EuE=w1200" alt="6"><br><strong>I choose the RandomForest for modeling</strong></li>
+</ul>
+<h3 id="5-2-2-Hyperparameter-Tuning-for-best-model"><a href="#5-2-2-Hyperparameter-Tuning-for-best-model" class="headerlink" title="5.2.2 Hyperparameter Tuning for best model"></a>5.2.2 Hyperparameter Tuning for best model</h3><p>I performed a randomized search optimization for RandomForest regression.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">param_dis = &#123;</span><br><span class="line">    &#x27;n_estimators&#x27;: [int(x) for x in np.linspace(start = 100, stop = 1000, num = 10)], </span><br><span class="line">    &#x27;max_features&#x27;: [&#x27;auto&#x27;, &#x27;sqrt&#x27;], </span><br><span class="line">    &#x27;max_depth&#x27; : [int(x) for x in np.linspace(10, 110, num = 11)]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">rnd_reg = RandomForestRegressor()</span><br><span class="line">rnd_search = RandomizedSearchCV(rnd_reg, param_distributions=param_dis, n_iter=10, scoring=&#x27;r2&#x27;, cv=8)</span><br><span class="line">rnd_search.fit(Xm_train_prep, ym_train)</span><br><span class="line">rnd_search.best_params_</span><br></pre></td></tr></table></figure>
+<p>{‘n_estimators’: 500, ‘max_features’: ‘auto’, ‘max_depth’: 70}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rs = rnd_search.cv_results_</span><br><span class="line">for mean_score, param in zip(rs[&#x27;mean_test_score&#x27;], rs[&#x27;params&#x27;]):</span><br><span class="line">  print(mean_score, param)</span><br></pre></td></tr></table></figure>
+<p>0.7571890752939892 {‘n_estimators’: 500, ‘max_features’: ‘sqrt’, ‘max_depth’: 60}<br>0.8761848888417882 {‘n_estimators’: 400, ‘max_features’: ‘auto’, ‘max_depth’: 50}<br>0.7551672959234259 {‘n_estimators’: 300, ‘max_features’: ‘sqrt’, ‘max_depth’: 10}<br>0.8755894159532791 {‘n_estimators’: 700, ‘max_features’: ‘auto’, ‘max_depth’: 20}<br>0.8769202362382503 {‘n_estimators’: 500, ‘max_features’: ‘auto’, ‘max_depth’: 70}<br>0.7555510299527464 {‘n_estimators’: 200, ‘max_features’: ‘sqrt’, ‘max_depth’: 90}<br>0.7607531453171252 {‘n_estimators’: 300, ‘max_features’: ‘sqrt’, ‘max_depth’: 70}<br>0.7546547124694465 {‘n_estimators’: 500, ‘max_features’: ‘sqrt’, ‘max_depth’: 20}<br>0.756403007078021 {‘n_estimators’: 800, ‘max_features’: ‘sqrt’, ‘max_depth’: 60}<br>0.7529617324325634 {‘n_estimators’: 500, ‘max_features’: ‘sqrt’, ‘max_depth’: 70}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">best_model = rnd_search.best_estimator_</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-3-Model-validation"><a href="#5-2-3-Model-validation" class="headerlink" title="5.2.3 Model validation"></a>5.2.3 Model validation</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Xm_test_prep = my_pipeline.transform(Xm_test)</span><br><span class="line">Xm_test_prep.shape</span><br></pre></td></tr></table></figure>
+<p>(79, 50)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">best_model.score(Xm_test_prep, ym_test)</span><br></pre></td></tr></table></figure>
+<p>0.85436228619647</p>
+<h3 id="5-2-4-Get-and-sort-the-important-features"><a href="#5-2-4-Get-and-sort-the-important-features" class="headerlink" title="5.2.4 Get and sort the important features"></a>5.2.4 Get and sort the important features</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">imp = best_model.feature_importances_</span><br><span class="line">imp</span><br></pre></td></tr></table></figure>
+<p>array([1.61876303e-02, 2.71078079e-03, 2.07608829e-03, 1.87140517e-03,<br>       4.34152136e-03, 1.25868590e-03, 2.73638566e-03, 1.11767822e-03,<br>       1.08627974e-03, 1.82034476e-03, 7.63364281e-04, 1.86060142e-04,<br>       6.72467929e-04, 1.26610934e-03, 8.27225109e-03, 4.44398088e-03,<br>       3.10562606e-03, 1.36966231e-03, 3.06489735e-03, 8.74337226e-03,<br>       1.12825713e-01, 5.20765142e-03, 7.81772840e-01, 6.23854293e-04,<br>       4.89504153e-04, 5.73765909e-04, 5.18793220e-04, 2.75299599e-04,<br>       2.99132806e-04, 5.06996341e-04, 7.22006654e-04, 2.30643204e-04,<br>       3.02107744e-04, 7.91191864e-04, 2.80796952e-04, 1.00221104e-03,<br>       1.31846696e-03, 1.59805136e-03, 5.18101416e-04, 7.05486650e-04,<br>       1.48550198e-03, 1.23587052e-03, 3.32659846e-04, 3.29680954e-03,<br>       9.29578853e-03, 6.22748061e-04, 8.42271652e-04, 5.95564120e-04,<br>       4.08478200e-03, 5.50797357e-04])</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat_onehot_attributes = list()</span><br><span class="line">for fea in my_pipeline.named_transformers_[&#x27;cat&#x27;][1].categories_:</span><br><span class="line">  cat_onehot_attributes += list(fea)</span><br><span class="line"></span><br><span class="line">##features = list(X_train)[:17] + cat_onehot_attributes</span><br><span class="line">features = list(Xm_train)[:23] + cat_onehot_attributes</span><br><span class="line">sorted(zip(imp, features), reverse=True)</span><br></pre></td></tr></table></figure>
+<p>Output exceeds the size limit. Open the full output data in a text editor<br>[(0.7817728396250969, ‘G2’),<br> (0.11282571333266349, ‘absences’),<br> (0.016187630310259403, ‘age’),<br> (0.00929578852567816, ‘home’),<br> (0.00874337225712773, ‘health’),<br> (0.008272251087153395, ‘famrel’),<br> (0.005207651424192915, ‘G1’),<br> (0.00444398087641422, ‘freetime’),<br> (0.004341521363633964, ‘studytime’),<br> (0.004084782003649651, ‘mother’),<br> (0.003296809538110478, ‘course’),<br> (0.0031056260611792125, ‘goout’),<br> (0.0030648973518031166, ‘Walc’),<br> (0.002736385664871637, ‘schoolsup’),<br> (0.0027107807863106926, ‘Medu’),<br> (0.0020760882945002174, ‘Fedu’),<br> (0.001871405170621695, ‘traveltime’),<br> (0.0018203447597380247, ‘activities’),<br> (0.001598051359576243, ‘teacher’),<br> (0.001485501975231734, ‘other’),<br> (0.0013696623073452987, ‘Dalc’),<br> (0.0013184669587347204, ‘services’),<br> (0.0012661093419546637, ‘romantic’),<br> (0.0012586859049457054, ‘failures’),<br> (0.0012358705235476287, ‘services’),<br>…<br> (0.00029913280644561094, ‘U’),<br> (0.00028079695187160637, ‘health’),<br> (0.0002752995987362152, ‘R’),<br> (0.00023064320356749592, ‘A’),<br> (0.00018606014185274978, ‘higher’)]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(10,20))</span><br><span class="line">ind = np.argsort(imp)</span><br><span class="line">plt.title(&#x27;feature importances&#x27;)</span><br><span class="line">plt.barh(range(len(ind)), imp[ind], color=&#x27;c&#x27;, align=&#x27;center&#x27;)</span><br><span class="line">plt.yticks(range(len(ind)), [features[i] for i in ind])</span><br><span class="line">plt.xlabel(&#x27;Relative Importance&#x27;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="5-3-Distribute-Model"><a href="#5-3-Distribute-Model" class="headerlink" title="5.3 Distribute Model"></a>5.3 Distribute Model</h2><h3 id="5-3-1-Model-integration"><a href="#5-3-1-Model-integration" class="headerlink" title="5.3.1 Model integration"></a>5.3.1 Model integration</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pip_final = Pipeline([</span><br><span class="line">    (&#x27;preparation&#x27;, my_pipeline),</span><br><span class="line">    (&#x27;regssor&#x27;, best_model)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">pip_final.fit(Xm_train, ym_train)</span><br><span class="line">final_model = pip_final</span><br></pre></td></tr></table></figure>
+<h3 id="5-3-2-Distribute-model"><a href="#5-3-2-Distribute-model" class="headerlink" title="5.3.2 Distribute model"></a>5.3.2 Distribute model</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import joblib</span><br><span class="line">joblib.dump(final_model, &#x27;final_model_reg.pkl&#x27;)</span><br></pre></td></tr></table></figure>
+<p>[‘final_model_reg.pkl’]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model_reg_load = joblib.load(&#x27;final_model_reg.pkl&#x27;)</span><br><span class="line">Xm_test.to_csv(&quot;x_test.csv&quot;,index=False)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def linearizer(lowerLimit, upperLimit): # including lower and upper limit!</span><br><span class="line">    upperLimit += 1</span><br><span class="line">    out = []</span><br><span class="line">    while (lowerLimit &lt; upperLimit):</span><br><span class="line">        out.append(lowerLimit)</span><br><span class="line">        lowerLimit += 1</span><br><span class="line">    return out </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">length_y = len(ym_test.index) #Get the length of our output</span><br><span class="line">x = []</span><br><span class="line">x = linearizer(0, (length_y - 1)) #minus 1 to compensate for position 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ym_test</span><br></pre></td></tr></table></figure>
+<p>146     0<br>379    10<br>247     8<br>197    10<br>368    10<br>       ..<br>41     12<br>204    11<br>362    10<br>233    13<br>275    12<br>Name: G3, Length: 79, dtype: int64</p>
+<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>從本次的分析我們可以得出，學生若遵循著規律的生活(good health, optimal freetime, optimal studytime, etc)就有高的機會在期末獲得好的成績，家庭與成長的背景亦會影響最後的G3成績。</p>
+<p>但因為本資料集的數據數量不夠多，想要更準確的判斷影響學習的原因，需要擴充更大的樣本數，所製作出的預測模型準確率才會越高。</p>
+<p>附錄：資料集特徵介紹</p>
+<table>
+<thead>
+<tr>
+<th>Columns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>school</td>
+<td>student’s school (binary: ‘GP’ - Gabriel Pereira or ‘MS’ - Mousinho da Silveira)</td>
+</tr>
+<tr>
+<td>sex</td>
+<td>student’s sex (binary: ‘F’ - female or ‘M’ - male)</td>
+</tr>
+<tr>
+<td>age</td>
+<td>student’s age (numeric: from 15 to 22)</td>
+</tr>
+<tr>
+<td>address</td>
+<td>student’s home address type (binary: ‘U’ - urban or ‘R’ - rural)</td>
+</tr>
+<tr>
+<td>famsize</td>
+<td>family size (binary: ‘LE3’ - less or equal to 3 or ‘GT3’ - greater than 3)</td>
+</tr>
+<tr>
+<td>Pstatus</td>
+<td>parent’s cohabitation status (binary: ‘T’ - living together or ‘A’ - apart)</td>
+</tr>
+<tr>
+<td>Medu</td>
+<td>mother’s education (numeric: 0 - none, 1 - primary education (4th grade), 2 â€“ 5th to 9th grade, 3 â€“ secondary education or 4 â€“ higher education)</td>
+</tr>
+<tr>
+<td>Fedu</td>
+<td>father’s education (numeric: 0 - none, 1 - primary education (4th grade), 2 â€“ 5th to 9th grade, 3 â€“ secondary education or 4 â€“ higher education)</td>
+</tr>
+<tr>
+<td>Mjob</td>
+<td>mother’s job (nominal: ‘teacher’, ‘health’ care related, civil ‘services’ (e.g. administrative or police), ‘at_home’ or ‘other’)</td>
+</tr>
+<tr>
+<td>Fjob</td>
+<td>father’s job (nominal: ‘teacher’, ‘health’ care related, civil ‘services’ (e.g. administrative or police), ‘at_home’ or ‘other’)</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>reason to choose this school (nominal: close to ‘home’, school ‘reputation’, ‘course’ preference or ‘other’)</td>
+</tr>
+<tr>
+<td>guardian</td>
+<td>student’s guardian (nominal: ‘mother’, ‘father’ or ‘other’)</td>
+</tr>
+<tr>
+<td>traveltime</td>
+<td>home to school travel time (numeric: 1 - &lt;15 min., 2 - 15 to 30 min., 3 - 30 min. to 1 hour, or 4 - &gt;1 hour)</td>
+</tr>
+<tr>
+<td>studytime</td>
+<td>weekly study time (numeric: 1 - &lt;2 hours, 2 - 2 to 5 hours, 3 - 5 to 10 hours, or 4 - &gt;10 hours)</td>
+</tr>
+<tr>
+<td>failures</td>
+<td>number of past class failures (numeric: n if 1&lt;&#x3D;n&lt;3, else 4)</td>
+</tr>
+<tr>
+<td>schoolsup</td>
+<td>extra educational support (binary: yes or no)</td>
+</tr>
+<tr>
+<td>famsup</td>
+<td>family educational support (binary: yes or no)</td>
+</tr>
+<tr>
+<td>paid</td>
+<td>extra paid classes within the course subject (Math or Portuguese) (binary: yes or no)</td>
+</tr>
+<tr>
+<td>activities</td>
+<td>extra-curricular activities (binary: yes or no)</td>
+</tr>
+<tr>
+<td>nursery</td>
+<td>attended nursery school (binary: yes or no)</td>
+</tr>
+<tr>
+<td>higher</td>
+<td>wants to take higher education (binary: yes or no)</td>
+</tr>
+<tr>
+<td>internet</td>
+<td>Internet access at home (binary: yes or no)</td>
+</tr>
+<tr>
+<td>romantic</td>
+<td>with a romantic relationship (binary: yes or no)</td>
+</tr>
+<tr>
+<td>famrel</td>
+<td>quality of family relationships (numeric: from 1 - very bad to 5 - excellent)</td>
+</tr>
+<tr>
+<td>freetime</td>
+<td>free time after school (numeric: from 1 - very low to 5 - very high)</td>
+</tr>
+<tr>
+<td>goout</td>
+<td>going out with friends (numeric: from 1 - very low to 5 - very high)</td>
+</tr>
+<tr>
+<td>Dalc</td>
+<td>workday alcohol consumption (numeric: from 1 - very low to 5 - very high)</td>
+</tr>
+<tr>
+<td>Walc</td>
+<td>weekend alcohol consumption (numeric: from 1 - very low to 5 - very high)</td>
+</tr>
+<tr>
+<td>health</td>
+<td>current health status (numeric: from 1 - very bad to 5 - very good)</td>
+</tr>
+<tr>
+<td>absences</td>
+<td>number of school absences (numeric: from 0 to 93)</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>first period grade (numeric: from 0 to 20)</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>second period grade (numeric: from 0 to 20)</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>final grade (numeric: from 0 to 20, output target)</td>
+</tr>
+</tbody></table>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://watermei1211.github.io">Eunice Lee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章連結: </span><span class="post-copyright-info"><a href="https://watermei1211.github.io/dataset-1/">https://watermei1211.github.io/dataset-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明來自 <a href="https://watermei1211.github.io" target="_blank">Eunice's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7/">人工智慧</a><a class="post-meta__tags" href="/tags/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/">機器學習</a><a class="post-meta__tags" href="/tags/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a></div><div class="post_share"><div class="social-share" data-image="https://img.freepik.com/free-vector/artificial-intelligence-isometric-flowchart-with-robot-risks-benefits-symbols-illustration_1284-53912.jpg?w=900&amp;t=st=1663751665~exp=1663752265~hmac=47ea8ad08837626744ef9c160289df25c1f19e5e38792ede934bff250778884b" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/Machine-Learning-1-1/" title="Machine Learning 1.1 AI與機器學習"><img class="cover" src="https://img.freepik.com/free-vector/artificial-intelligence-isometric-flowchart-with-robot-risks-benefits-symbols-illustration_1284-53912.jpg?w=900&t=st=1663751665~exp=1663752265~hmac=47ea8ad08837626744ef9c160289df25c1f19e5e38792ede934bff250778884b" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-21</div><div class="title">Machine Learning 1.1 AI與機器學習</div></div></a></div><div><a href="/IOT-1-1/" title="Tensorflow Playground:學習神經網路的資源"><img class="cover" src="https://i.imgur.com/MHKPi6F.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-13</div><div class="title">Tensorflow Playground:學習神經網路的資源</div></div></a></div><div><a href="/python-1-3/" title="Python 1.3 Numeric Types"><img class="cover" src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-11</div><div class="title">Python 1.3 Numeric Types</div></div></a></div><div><a href="/python-1-2/" title="Python 1.2 Strings"><img class="cover" src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-11</div><div class="title">Python 1.2 Strings</div></div></a></div><div><a href="/python-1-4/" title="Python 1.4 Sequence Types"><img class="cover" src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-14</div><div class="title">Python 1.4 Sequence Types</div></div></a></div><div><a href="/python-1-1/" title="Python 1.1 Python Data Structures"><img class="cover" src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-11</div><div class="title">Python 1.1 Python Data Structures</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.imgur.com/AiZwQcy.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Eunice Lee</div><div class="author-info__description">初心者的自言自語</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.facebook.com/eunice.harry.daily/"><i class="fab fa-brands fa-facebook"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/watermei1211" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:watermei1211@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">新開張!!!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Kaggle%E5%88%86%E6%9E%90%E4%B8%BB%E9%A1%8C-Alcohol-Effects-On-Study"><span class="toc-text">Kaggle分析主題_Alcohol Effects On Study</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step1-%E5%8F%96%E5%BE%97%E8%B3%87%E6%96%99"><span class="toc-text">Step1 取得資料</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E8%AE%80%E5%8F%96%E8%B3%87%E6%96%99"><span class="toc-text">1.1 讀取資料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E6%8E%A2%E7%B4%A2%E8%B3%87%E6%96%99"><span class="toc-text">1.2 探索資料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E6%9F%A5%E7%9C%8B%E9%81%BA%E5%A4%B1%E5%80%BC"><span class="toc-text">1.3 查看遺失值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step2-%E5%88%87%E5%89%B2%E8%A8%93%E7%B7%B4%E9%9B%86-x2F-%E6%B8%AC%E8%A9%A6%E9%9B%86"><span class="toc-text">Step2 切割訓練集&#x2F;測試集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step3-%E6%8E%A2%E7%B4%A2%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90"><span class="toc-text">Step3 探索數據分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%95%B8%E5%80%BC%E5%9E%8B%E8%B3%87%E6%96%99"><span class="toc-text">3.1 數值型資料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E9%A1%9E%E5%88%A5%E5%9E%8B%E8%B3%87%E6%96%99"><span class="toc-text">3.2 類別型資料</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step4-%E8%B3%87%E6%96%99%E5%89%8D%E8%99%95%E7%90%86"><span class="toc-text">Step4 資料前處理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-Ordinal-encoder"><span class="toc-text">4.1 Ordinal encoder</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step5-%E5%BB%BA%E7%AB%8B%E8%88%87%E7%99%BC%E4%BD%88%E6%A8%A1%E5%9E%8B"><span class="toc-text">Step5 建立與發佈模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OneHotEncoder"><span class="toc-text">OneHotEncoder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-Simple-modeling"><span class="toc-text">5.2 Simple modeling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-Cross-validate-models"><span class="toc-text">5.2.1 Cross validate models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-2-Hyperparameter-Tuning-for-best-model"><span class="toc-text">5.2.2 Hyperparameter Tuning for best model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-3-Model-validation"><span class="toc-text">5.2.3 Model validation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-4-Get-and-sort-the-important-features"><span class="toc-text">5.2.4 Get and sort the important features</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-Distribute-Model"><span class="toc-text">5.3 Distribute Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-1-Model-integration"><span class="toc-text">5.3.1 Model integration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-2-Distribute-model"><span class="toc-text">5.3.2 Distribute model</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text"></span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/dataset-1/" title="資料分析主題_使用機器學習建立成績預測模型"><img src="https://img.freepik.com/free-vector/artificial-intelligence-isometric-flowchart-with-robot-risks-benefits-symbols-illustration_1284-53912.jpg?w=900&amp;t=st=1663751665~exp=1663752265~hmac=47ea8ad08837626744ef9c160289df25c1f19e5e38792ede934bff250778884b" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="資料分析主題_使用機器學習建立成績預測模型"/></a><div class="content"><a class="title" href="/dataset-1/" title="資料分析主題_使用機器學習建立成績預測模型">資料分析主題_使用機器學習建立成績預測模型</a><time datetime="2022-12-20T11:05:00.000Z" title="發表於 2022-12-20 19:05:00">2022-12-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/IOT-1-1/" title="Tensorflow Playground:學習神經網路的資源"><img src="https://i.imgur.com/MHKPi6F.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Tensorflow Playground:學習神經網路的資源"/></a><div class="content"><a class="title" href="/IOT-1-1/" title="Tensorflow Playground:學習神經網路的資源">Tensorflow Playground:學習神經網路的資源</a><time datetime="2022-12-13T09:05:57.000Z" title="發表於 2022-12-13 17:05:57">2022-12-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/shiba-1-2/" title="入柴坑新手上路_與哈里相遇的100天"><img src="https://lh3.googleusercontent.com/Cl7bD2PoeSMpdc4qAzhK2HKIM79LU9Bl5w7IyiXRyHvi6itR0S5mQ_gQY_MveAeiWtaDfKBGT8I_n5378J9TiAS7tO-O1tMxqB5-6I4lWbY8ktuCwhGf_zRyku7NcstOJZbBVtc3c04=w600" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="入柴坑新手上路_與哈里相遇的100天"/></a><div class="content"><a class="title" href="/shiba-1-2/" title="入柴坑新手上路_與哈里相遇的100天">入柴坑新手上路_與哈里相遇的100天</a><time datetime="2022-11-22T10:58:06.000Z" title="發表於 2022-11-22 18:58:06">2022-11-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/python-1-4/" title="Python 1.4 Sequence Types"><img src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 1.4 Sequence Types"/></a><div class="content"><a class="title" href="/python-1-4/" title="Python 1.4 Sequence Types">Python 1.4 Sequence Types</a><time datetime="2022-10-14T11:56:57.000Z" title="發表於 2022-10-14 19:56:57">2022-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/python-1-3/" title="Python 1.3 Numeric Types"><img src="http://3.bp.blogspot.com/-6NXU8Xfez18/VdVflsf_ovI/AAAAAAAA5-c/JXsIFmBivmE/s1600/python-programming.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 1.3 Numeric Types"/></a><div class="content"><a class="title" href="/python-1-3/" title="Python 1.3 Numeric Types">Python 1.3 Numeric Types</a><time datetime="2022-10-11T11:42:57.000Z" title="發表於 2022-10-11 19:42:57">2022-10-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By Eunice Lee</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, Welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="簡繁轉換">繁</button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直達評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜尋</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  資料庫載入中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜尋文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://watermei1211.github.io/dataset-1/'
+    this.page.identifier = '/dataset-1/'
+    this.page.title = '資料分析主題_使用機器學習建立成績預測模型'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-watermei1211-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Disqus' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
